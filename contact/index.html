@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Sancho Syquia</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <main>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../contact/index.html">Contact</a>
+      <a href="../resume/index.html">Resume</a>
+      <a href="https://github.com/ssyquia" target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+
+    <h1>Contact</h1>
+    <p>Send me a message using the form below.</p>
+
+    <form action="mailto:ssyquia@ucsd.edu" method="POST" enctype="text/plain">
+      <label>
+        Your email
+        <input name="email" type="email" value="you@example.com" required />
+      </label>
+
+      <label>
+        Subject
+        <input name="subject" value="Hello from your website" required />
+      </label>
+
+      <label>
+        Message
+        <textarea name="body" rows="6" required>Hi Sancho, I found your portfolio and wanted to connect.</textarea>
+      </label>
+
+      <button>Send</button>
+    </form>
+  </main>
+</body>
+</html>

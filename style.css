@@ -1,0 +1,40 @@
+body {
+  font: 100%/1.5 system-ui;
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+nav {
+  margin-bottom: 1rem;
+}
+
+nav a {
+  margin-right: 0.75rem;
+}
+
+img {
+  max-width: 18rem;
+  height: auto;
+}
+
+form {
+  max-width: 36rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
