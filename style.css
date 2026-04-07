@@ -1,30 +1,91 @@
+html {
+  --color-accent: oklch(65% 0.2 25);
+  accent-color: var(--color-accent);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font: 100%/1.5 system-ui;
-  max-width: 70ch;
-  margin: 0 auto;
+  max-width: 100ch;
+  margin-inline: auto;
   padding: 1rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  margin-block: 0 0.6em;
+}
+
 nav {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+nav ul,
+nav li {
+  display: contents;
 }
 
 nav a {
-  margin-right: 0.75rem;
+  flex: 1 1 8rem;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.6em;
+  border-bottom: 0.4em solid transparent;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  border-bottom-color: var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+nav a.current {
+  border-bottom-color: oklch(80% 3% 200);
+  padding-bottom: 0.2em;
 }
 
 img {
-  max-width: 18rem;
+  max-width: 100%;
   height: auto;
 }
 
+main > img {
+  max-width: 18rem;
+}
+
 form {
-  max-width: 36rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  max-width: 42rem;
 }
 
 label {
-  display: block;
-  margin-bottom: 0.75rem;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: start;
+  gap: 0.75em;
 }
 
 input,
@@ -36,5 +97,118 @@ button {
 input,
 textarea {
   width: 100%;
-  box-sizing: border-box;
+  padding: 0.45em 0.55em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.35rem;
+}
+
+label > input,
+label > textarea {
+  grid-column: 2;
+}
+
+form button {
+  grid-column: 2;
+  justify-self: start;
+  padding: 0.5em 1em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.35rem;
+  background: white;
+}
+
+@supports not (grid-template-columns: subgrid) {
+  label {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-auto-rows: auto auto 1fr;
+  gap: 1em;
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0.6em;
+  padding: 0.75em;
+  border: 1px solid oklch(90% 3% 200);
+  border-radius: 0.5rem;
+  background-color: oklch(99% 0.01 200);
+}
+
+@supports not (grid-template-rows: subgrid) {
+  .projects article {
+    grid-template-rows: auto auto 1fr;
+  }
+}
+
+.projects h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.projects img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.35rem;
+  background-color: oklch(95% 2% 200);
+}
+
+.projects p {
+  margin: 0;
+}
+
+.resume-page section {
+  margin-block: 1.75rem;
+}
+
+.resume-page h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.resume-page article {
+  margin-block: 1rem;
+  padding-left: 0.9rem;
+  border-left: 3px solid oklch(88% 3% 200);
+}
+
+.resume-page article h3 {
+  margin-bottom: 0.2rem;
+}
+
+.resume-page article header p {
+  margin: 0 0 0.5rem;
+  color: oklch(45% 3% 240);
+}
+
+.resume-page ul {
+  margin-top: 0.25rem;
+  padding-left: 1.25rem;
+}
+
+.resume-page li + li {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 40rem) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  label {
+    grid-template-columns: 1fr;
+    gap: 0.4em;
+  }
+
+  label > input,
+  label > textarea,
+  form button {
+    grid-column: 1;
+  }
 }

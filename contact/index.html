@@ -11,7 +11,7 @@
     <nav>
       <a href="../index.html">Home</a>
       <a href="../projects/index.html">Projects</a>
-      <a href="../contact/index.html">Contact</a>
+      <a class="current" href="../contact/index.html">Contact</a>
       <a href="../resume/index.html">Resume</a>
       <a href="https://github.com/ssyquia" target="_blank" rel="noreferrer">GitHub</a>
     </nav>
@@ -21,21 +21,21 @@
 
     <form action="mailto:ssyquia@ucsd.edu" method="POST" enctype="text/plain">
       <label>
-        Your email
-        <input name="email" type="email" value="you@example.com" required />
+        <span>Your email</span>
+        <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
       </label>
 
       <label>
-        Subject
-        <input name="subject" value="Hello from your website" required />
+        <span>Subject</span>
+        <input name="subject" placeholder="Hello from your website" required />
       </label>
 
       <label>
-        Message
-        <textarea name="body" rows="6" required>Hi Sancho, I found your portfolio and wanted to connect.</textarea>
+        <span>Message</span>
+        <textarea name="body" rows="6" placeholder="Hi Sancho, I found your portfolio and wanted to connect." required></textarea>
       </label>
 
-      <button>Send</button>
+      <button type="submit">Send</button>
     </form>
   </main>
 </body>
