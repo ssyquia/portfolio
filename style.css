@@ -1,6 +1,10 @@
 html {
   --color-accent: oklch(65% 0.2 25);
+  --border-color: oklch(50% 10% 200 / 40%);
+  --surface-color: color-mix(in oklch, canvas 90%, var(--color-accent) 10%);
+  --muted-text: color-mix(in oklch, canvastext 68%, canvas 32%);
   accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
 
 *,
@@ -34,8 +38,9 @@ h1 {
 nav {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1.25rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav ul,
@@ -56,11 +61,11 @@ nav a {
 nav a:hover,
 nav a:focus-visible {
   border-bottom-color: var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 nav a.current {
-  border-bottom-color: oklch(80% 3% 200);
+  border-bottom-color: var(--border-color);
   padding-bottom: 0.2em;
 }
 
@@ -76,6 +81,17 @@ img {
   margin: 0 auto 1.1rem;
 }
 
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 80%;
+  font-family: inherit;
+}
+
 form {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -83,7 +99,7 @@ form {
   max-width: 42rem;
 }
 
-label {
+form label {
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
@@ -93,7 +109,8 @@ label {
 
 input,
 textarea,
-button {
+button,
+select {
   font: inherit;
 }
 
@@ -101,12 +118,12 @@ input,
 textarea {
   width: 100%;
   padding: 0.45em 0.55em;
-  border: 1px solid oklch(80% 3% 200);
+  border: 1px solid var(--border-color);
   border-radius: 0.35rem;
 }
 
-label > input,
-label > textarea {
+form label > input,
+form label > textarea {
   grid-column: 2;
 }
 
@@ -114,13 +131,13 @@ form button {
   grid-column: 2;
   justify-self: start;
   padding: 0.5em 1em;
-  border: 1px solid oklch(80% 3% 200);
+  border: 1px solid var(--border-color);
   border-radius: 0.35rem;
-  background: white;
+  background: canvas;
 }
 
 @supports not (grid-template-columns: subgrid) {
-  label {
+  form label {
     grid-template-columns: auto 1fr;
   }
 }
@@ -138,9 +155,9 @@ form button {
   grid-row: span 3;
   gap: 0.6em;
   padding: 0.75em;
-  border: 1px solid oklch(90% 3% 200);
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
-  background-color: oklch(99% 0.01 200);
+  background-color: var(--surface-color);
 }
 
 @supports not (grid-template-rows: subgrid) {
@@ -164,6 +181,7 @@ form button {
 
 .projects p {
   margin: 0;
+  color: var(--muted-text);
 }
 
 .resume-page section {
@@ -187,7 +205,7 @@ form button {
 
 .resume-page article header p {
   margin: 0 0 0.5rem;
-  color: oklch(45% 3% 240);
+  color: var(--muted-text);
 }
 
 .resume-page ul {
@@ -204,13 +222,13 @@ form button {
     grid-template-columns: 1fr;
   }
 
-  label {
+  form label {
     grid-template-columns: 1fr;
     gap: 0.4em;
   }
 
-  label > input,
-  label > textarea,
+  form label > input,
+  form label > textarea,
   form button {
     grid-column: 1;
   }

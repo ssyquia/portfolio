@@ -5,21 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Sancho Syquia</title>
   <link rel="stylesheet" href="../style.css" />
+  <script src="../global.js" type="module"></script>
 </head>
 <body>
   <main>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../projects/index.html">Projects</a>
-      <a class="current" href="../contact/index.html">Contact</a>
-      <a href="../resume/index.html">Resume</a>
-      <a href="https://github.com/ssyquia" target="_blank" rel="noreferrer">GitHub</a>
-    </nav>
-
     <h1>Contact</h1>
     <p>Send me a message using the form below.</p>
 
-    <form action="mailto:ssyquia@ucsd.edu" method="POST" enctype="text/plain">
+    <form action="mailto:ssyquia@ucsd.edu" method="GET">
       <label>
         <span>Your email</span>
         <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
