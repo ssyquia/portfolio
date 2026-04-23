@@ -1,0 +1,74 @@
+[
+  {
+    "title": "IMC Prosperity 3",
+    "year": 2025,
+    "image": "images/imc-prosperity.jpg",
+    "description": "Algorithmic trading challenge where I placed 2nd nationally and 9th globally out of 12,680 teams."
+  },
+  {
+    "title": "Stackwise",
+    "year": 2025,
+    "image": "images/stackwise.png",
+    "description": "Won 1st place Best Developer Tool at LA Hacks 2025 for a tech-stack brainstorming tool."
+  },
+  {
+    "title": "Veida AI",
+    "year": 2024,
+    "image": "images/veida-ai.png",
+    "description": "Built an AI study app with flashcards, notes, and quizzes used by 11,000+ students."
+  },
+  {
+    "title": "ClawPatrol",
+    "year": 2024,
+    "image": "images/claw-patrol.png",
+    "description": "Built a dinosaur species image classifier that reached 80.1% accuracy."
+  },
+  {
+    "title": "Xtract",
+    "year": 2022,
+    "image": "images/xtract.png",
+    "description": "Built a dental appointment and prescription app with SHA-256 data protection."
+  },
+  {
+    "title": "Donate COVID-19",
+    "year": 2020,
+    "image": "images/donatecovid19.png",
+    "description": "Created a global beneficiary directory that reached 14K views."
+  },
+  {
+    "title": "DSC 106 Lab 1 Site Setup",
+    "year": 2026,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Initial portfolio structure with semantic HTML pages and navigation."
+  },
+  {
+    "title": "DSC 106 Lab 2 Styling",
+    "year": 2026,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Applied responsive layout, typography, and card styles using CSS."
+  },
+  {
+    "title": "DSC 106 Lab 3 JavaScript Basics",
+    "year": 2026,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Added dynamic navigation, theme switching, and contact form enhancements."
+  },
+  {
+    "title": "UCSD Study Planner",
+    "year": 2023,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Prototype planner app for scheduling classes, tasks, and exam reminders."
+  },
+  {
+    "title": "Personal Finance Tracker",
+    "year": 2021,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Budget dashboard prototype for tracking expenses and monthly saving goals."
+  },
+  {
+    "title": "Campus Event Recommender",
+    "year": 2024,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Recommendation concept that suggests UCSD events based on interests and major."
+  }
+]

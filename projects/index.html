@@ -6,69 +6,15 @@
   <title>Projects - Sancho Syquia</title>
   <link rel="stylesheet" href="../style.css" />
   <script src="../global.js" type="module"></script>
+  <script src="projects.js" type="module" defer></script>
 </head>
 <body>
   <main>
-    <h1>Projects and Awards</h1>
+    <h1 class="projects-title">
+      Projects and Awards <span class="projects-count"></span>
+    </h1>
     <section class="projects">
-      <article>
-        <h2>IMC Prosperity 3</h2>
-        <img src="../images/imc-prosperity.jpg" alt="Screenshot for IMC Prosperity 3 project" />
-        <p>
-          <time datetime="2025-04">Apr 2025</time>. Algorithmic trading
-          challenge where I placed 2nd nationally and 9th globally out of
-          12,680 teams.
-        </p>
-      </article>
-
-      <article>
-        <h2>Stackwise</h2>
-        <img src="../images/stackwise.png" alt="Screenshot for Stackwise project" />
-        <p>
-          <time datetime="2025-04">Apr 2025</time>. Won 1st place Best
-          Developer Tool at LA Hacks 2025 for a tech-stack brainstorming tool.
-        </p>
-      </article>
-
-      <article>
-        <h2>Veida AI</h2>
-        <img src="../images/veida-ai.png" alt="Screenshot for Veida AI project" />
-        <p>
-          <time datetime="2024-07">Jul 2024</time> -
-          <time datetime="2024-10">Oct 2024</time>. Built an AI study app with
-          flashcards, notes, and quizzes used by 11,000+ students.
-        </p>
-      </article>
-
-      <article>
-        <h2>ClawPatrol</h2>
-        <img src="../images/claw-patrol.png" alt="Screenshot for ClawPatrol project" />
-        <p>
-          <time datetime="2024-04">Apr 2024</time>. Built a dinosaur species
-          image classifier that reached 80.1% accuracy.
-        </p>
-      </article>
-
-      <article>
-        <h2>Xtract</h2>
-        <img src="../images/xtract.png" alt="Screenshot for Xtract project" />
-        <p>
-          <time datetime="2021-07">Jul 2021</time> -
-          <time datetime="2022-03">Mar 2022</time>. Built a dental appointment
-          and prescription app with SHA-256 data protection.
-        </p>
-      </article>
-
-      <article>
-        <h2>Donate COVID-19</h2>
-        <img src="../images/donatecovid19.png" alt="Screenshot for Donate COVID-19 project" />
-        <p>
-          <time datetime="2020-03">Mar 2020</time> -
-          <time datetime="2020-07">Jul 2020</time>. Created a global beneficiary
-          directory that reached 14K views.
-        </p>
-      </article>
-
+      <!-- Project cards are rendered dynamically from ../lib/projects.json -->
     </section>
   </main>
 </body>

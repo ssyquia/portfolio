@@ -35,6 +35,12 @@ h1 {
   margin-block: 0 0.6em;
 }
 
+.projects-count {
+  font-size: 0.45em;
+  font-weight: 400;
+  color: var(--muted-text);
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -79,6 +85,14 @@ img {
   width: min(100%, 28rem);
   border-radius: 0.6rem;
   margin: 0 auto 1.1rem;
+}
+
+.home-section {
+  margin-top: 2rem;
+}
+
+.home-section h2 {
+  margin-bottom: 0.6rem;
 }
 
 .color-scheme {
@@ -166,7 +180,7 @@ form button {
   }
 }
 
-.projects h2 {
+.projects :is(h1, h2, h3, h4, h5, h6) {
   margin: 0;
   font-size: 1.1rem;
 }
@@ -180,6 +194,28 @@ form button {
 }
 
 .projects p {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  max-width: 28rem;
+  margin: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--surface-color);
+}
+
+#profile-stats dt {
+  margin: 0;
+  font-weight: 600;
+}
+
+#profile-stats dd {
   margin: 0;
   color: var(--muted-text);
 }

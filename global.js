@@ -100,3 +100,66 @@ form?.addEventListener('submit', (event) => {
   let query = params.join('&');
   location.href = `${form.action}?${query}`;
 });
+
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch JSON from ${url}: ${response.status} ${response.statusText}`,
+      );
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching or parsing JSON data from ${url}:`, error);
+    throw error;
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!containerElement) {
+    console.error('renderProjects: container element was not found.');
+    return;
+  }
+
+  const safeHeadingLevel = /^h[1-6]$/.test(headingLevel) ? headingLevel : 'h2';
+  containerElement.innerHTML = '';
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects available right now.</p>';
+    return;
+  }
+
+  for (const project of projects) {
+    const article = document.createElement('article');
+
+    const heading = document.createElement(safeHeadingLevel);
+    heading.textContent = project.title ?? 'Untitled Project';
+
+    const image = document.createElement('img');
+    image.src = new URL(
+      project.image ?? 'https://dsc106.com/labs/lab02/images/empty.svg',
+      import.meta.url,
+    ).href;
+    image.alt = `Screenshot for ${heading.textContent} project`;
+
+    const description = document.createElement('p');
+    if (project.year) {
+      const yearPrefix = document.createElement('strong');
+      yearPrefix.textContent = `${project.year}. `;
+      description.append(yearPrefix);
+    }
+    description.append(
+      document.createTextNode(project.description ?? 'No description provided.'),
+    );
+
+    article.append(heading, image, description);
+    containerElement.append(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
