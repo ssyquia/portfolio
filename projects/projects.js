@@ -111,7 +111,7 @@ function applyFiltersAndRender() {
 
   renderProjects(visibleProjects, projectsContainer, 'h2');
   updateProjectCount(visibleProjects);
-  renderPieChart(selectedYear ? visibleProjects : searchedProjects);
+  renderPieChart(searchedProjects);
 }
 
 try {
