@@ -13,6 +13,21 @@
     <h1 class="projects-title">
       Projects and Awards <span class="projects-count"></span>
     </h1>
+
+    <section class="projects-visualization" aria-label="Projects by year">
+      <div class="chart-container">
+        <svg id="projects-pie-plot" viewBox="-50 -50 100 100" role="img" aria-label="Pie chart of projects by year"></svg>
+        <ul class="legend"></ul>
+      </div>
+    </section>
+
+    <input
+      class="searchBar"
+      type="search"
+      aria-label="Search projects"
+      placeholder="Search projects..."
+    />
+
     <section class="projects">
       <!-- Project cards are rendered dynamically from ../lib/projects.json -->
     </section>

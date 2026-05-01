@@ -145,17 +145,20 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     ).href;
     image.alt = `Screenshot for ${heading.textContent} project`;
 
+    const details = document.createElement('div');
+    details.className = 'project-details';
+
     const description = document.createElement('p');
-    if (project.year) {
-      const yearPrefix = document.createElement('strong');
-      yearPrefix.textContent = `${project.year}. `;
-      description.append(yearPrefix);
-    }
     description.append(
       document.createTextNode(project.description ?? 'No description provided.'),
     );
 
-    article.append(heading, image, description);
+    const year = document.createElement('p');
+    year.className = 'project-year';
+    year.textContent = project.year ? `Year: ${project.year}` : 'Year unknown';
+
+    details.append(description, year);
+    article.append(heading, image, details);
     containerElement.append(article);
   }
 }
