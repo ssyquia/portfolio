@@ -306,6 +306,110 @@ form button {
   color: var(--muted-text);
 }
 
+.stats,
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0;
+}
+
+.stats {
+  max-width: 44rem;
+  padding: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--surface-color);
+}
+
+.stats dt,
+dl.info dt {
+  font-weight: 600;
+  color: color-mix(in oklch, canvastext 82%, canvas 18%);
+}
+
+.stats dd,
+dl.info dd {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+#language-breakdown:empty {
+  display: none;
+}
+
+#chart {
+  margin-block: 1rem;
+}
+
+#chart svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.gridlines line {
+  stroke: color-mix(in oklch, canvastext 20%, canvas 80%);
+  stroke-opacity: 0.45;
+}
+
+.gridlines path {
+  display: none;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+dl.info {
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 10;
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: color-mix(in oklch, canvas 88%, transparent);
+  box-shadow: 0 0.7rem 1.8rem color-mix(in oklch, canvastext 22%, transparent);
+  backdrop-filter: blur(0.6rem);
+  pointer-events: none;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: canvastext;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
 .resume-page section {
   margin-block: 1.75rem;
 }
