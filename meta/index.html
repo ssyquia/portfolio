@@ -17,16 +17,34 @@
       history and visualized with D3.
     </p>
 
-    <section>
-      <h2>Summary Stats</h2>
-      <div id="stats"></div>
+    <div class="commit-filter">
+      <label for="commit-progress">Show commits until:</label>
+      <input id="commit-progress" type="range" min="0" max="100" step="any" value="100" />
+      <time id="commit-time"></time>
+    </div>
+
+    <div id="stats"></div>
+
+    <section id="scrolly-1" class="scrolly-story">
+      <div id="scatter-story">
+        <h2>Evolution over time</h2>
+      </div>
+      <div id="scatter-plot">
+        <h2>Commits by time of day</h2>
+        <div id="chart"></div>
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
+      </div>
     </section>
 
-    <section>
-      <h2>Commits by Time of Day</h2>
-      <div id="chart"></div>
-      <p id="selection-count">No commits selected</p>
-      <dl id="language-breakdown" class="stats"></dl>
+    <section id="scrolly-2" class="file-scrolly-story">
+      <div id="file-plot">
+        <h2>Files by Lines of Code</h2>
+        <dl id="files"></dl>
+      </div>
+      <div id="file-story">
+        <h2>Commits</h2>
+      </div>
     </section>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
@@ -39,7 +57,7 @@
       <dd id="commit-date"></dd>
 
       <dt>Time</dt>
-      <dd id="commit-time"></dd>
+      <dd id="tooltip-commit-time"></dd>
 
       <dt>Author</dt>
       <dd id="commit-author"></dd>

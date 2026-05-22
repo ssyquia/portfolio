@@ -322,6 +322,12 @@ dl.info {
   background-color: var(--surface-color);
 }
 
+.stats > div {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+}
+
 .stats dt,
 dl.info dt {
   font-weight: 600;
@@ -338,8 +344,103 @@ dl.info dd {
   display: none;
 }
 
+#stats .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.85rem 1.25rem;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  margin-block: 2rem 1.25rem;
+}
+
+#stats .stats > div {
+  display: block;
+  grid-column: auto;
+  min-width: 0;
+}
+
+#stats .stats dt {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--muted-text);
+}
+
+#stats .stats dd {
+  margin-top: 0.25rem;
+  font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+  line-height: 1.15;
+  color: canvastext;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.commit-filter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-block: 1.4rem 1.2rem;
+}
+
+.commit-filter input {
+  flex: 1;
+  accent-color: dodgerblue;
+}
+
+.commit-filter time {
+  margin-left: auto;
+  color: var(--muted-text);
+  white-space: nowrap;
+}
+
+#scrolly-1,
+#scrolly-2 {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+#scrolly-1 > *,
+#scrolly-2 > * {
+  flex: 1;
+}
+
+#scatter-plot,
+#file-plot {
+  position: sticky;
+  top: 0.75rem;
+  max-height: calc(100vh - 1.5rem);
+  overflow: hidden;
+}
+
+#scatter-plot h2,
+#file-plot h2,
+#scatter-story h2 {
+  margin-top: 0;
+}
+
+.step,
+.file-step {
+  min-height: 6.5rem;
+  margin-block: 0 0.8rem;
+  color: var(--muted-text);
+}
+
+.step p,
+.file-step p {
+  margin: 0;
+}
+
+.step.active,
+.file-step.active {
+  color: canvastext;
+}
+
 #chart {
-  margin-block: 1rem;
+  margin-block: 1rem 0.75rem;
 }
 
 #chart svg {
@@ -361,6 +462,10 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -410,6 +515,63 @@ dl.info[hidden]:not(:hover, :focus-within) {
   animation: marching-ants 2s linear infinite;
 }
 
+#files {
+  display: grid;
+  grid-template-columns: minmax(10.5rem, 0.95fr) 1.8fr;
+  gap: 0.85rem 1rem;
+  margin: 0;
+}
+
+#files > div {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+}
+
+#files dt {
+  grid-column: 1;
+  min-width: 0;
+}
+
+#files code {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+#files small {
+  display: block;
+  margin-top: 0.05rem;
+  color: var(--muted-text);
+}
+
+#files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.12em;
+  margin-left: 0;
+  padding-top: 0.25em;
+}
+
+.loc {
+  display: flex;
+  width: 0.45em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color);
+}
+
+.scrolly-story {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.file-scrolly-story {
+  margin-top: 2rem;
+}
+
 .resume-page section {
   margin-block: 1.75rem;
 }
@@ -447,6 +609,49 @@ dl.info[hidden]:not(:hover, :focus-within) {
   .chart-container {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .commit-filter {
+    flex-direction: column;
+  }
+
+  #scrolly-1,
+  #scrolly-2 {
+    flex-direction: column;
+  }
+
+  #scatter-plot,
+  #file-plot {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .commit-filter {
+    align-items: stretch;
+  }
+
+  .commit-filter time {
+    margin-left: 0;
+  }
+
+  #stats .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .step,
+  .file-step {
+    min-height: auto;
+    margin-bottom: 1rem;
+  }
+
+  #files {
+    grid-template-columns: 1fr;
+  }
+
+  #files > div {
+    display: block;
   }
 
   #projects-pie-plot {
