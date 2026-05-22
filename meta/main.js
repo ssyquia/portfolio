@@ -411,15 +411,29 @@ function onStepEnter(response) {
 function updateFromScrollPosition() {
   scrollFrame = null;
 
-  const scrolly = document.getElementById('scrolly-1');
-  const scrollyRect = scrolly.getBoundingClientRect();
+  const targetY = window.innerHeight * 0.5;
+  const activeStory =
+    ['#scrolly-2', '#scrolly-1']
+      .map((selector) => {
+        const scrolly = document.querySelector(selector);
+        const rect = scrolly?.getBoundingClientRect();
+        const isVisible =
+          rect && rect.top < window.innerHeight * 0.75 && rect.bottom > targetY;
 
-  if (scrollyRect.top > window.innerHeight * 0.7 || scrollyRect.bottom < 0) {
+        return isVisible ? selector : null;
+      })
+      .find(Boolean) ?? null;
+
+  if (!activeStory) {
     return;
   }
 
-  const targetY = window.innerHeight * 0.5;
-  const activeStep = Array.from(document.querySelectorAll('#scatter-story .step'))
+  const stepSelector =
+    activeStory === '#scrolly-2'
+      ? '#file-story .file-step'
+      : '#scatter-story .step';
+
+  const activeStep = Array.from(document.querySelectorAll(stepSelector))
     .map((step) => {
       const rect = step.getBoundingClientRect();
       return {

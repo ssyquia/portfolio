@@ -18,6 +18,8 @@ body {
   max-width: 100ch;
   margin-inline: auto;
   padding: 1rem;
+  color: canvastext;
+  background: canvas;
 }
 
 h1,
@@ -422,6 +424,11 @@ dl.info dd {
   margin-top: 0;
 }
 
+#scatter-story,
+#file-story {
+  padding-bottom: 55vh;
+}
+
 .step,
 .file-step {
   min-height: 6.5rem;
@@ -534,6 +541,9 @@ dl.info[hidden]:not(:hover, :focus-within) {
 }
 
 #files code {
+  display: block;
+  color: canvastext;
+  font-weight: 600;
   overflow-wrap: break-word;
   word-break: normal;
 }
